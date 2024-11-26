@@ -1,4 +1,4 @@
-package src.partie;
+package src.plateaux;
 
 import src.joueurs.Joueur;
 

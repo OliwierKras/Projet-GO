@@ -1,6 +1,7 @@
-package src.partie;
+package src.jeu;
 
 import src.joueurs.Joueur;
+import src.plateaux.Plateau;
 
 import java.util.Scanner;
 

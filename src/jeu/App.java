@@ -1,6 +1,4 @@
-package src;
-
-import src.partie.Partie;
+package src.jeu;
 
 public class App {
     public static void main(String[] args) {

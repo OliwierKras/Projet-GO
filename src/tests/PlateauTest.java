@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import src.joueurs.Joueur;
-import src.partie.Plateau;
+import src.plateaux.Plateau;
 
 public class PlateauTest {
     Plateau plateau = new Plateau(7);

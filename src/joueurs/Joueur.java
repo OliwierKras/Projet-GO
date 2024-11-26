@@ -1,7 +1,5 @@
 package src.joueurs;
 
-import src.partie.Plateau;
-
 public class Joueur {
     private String couleur;
 

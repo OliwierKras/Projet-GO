@@ -3,7 +3,7 @@ package src.tests;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import src.partie.Partie;
+import src.jeu.Partie;
 
 public class PartieTest {
     private Partie partie = new Partie();
