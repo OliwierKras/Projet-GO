@@ -2,21 +2,19 @@ package src.partie;
 
 import src.joueurs.Joueur;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 import static java.lang.System.in;
 
 public class Partie {
-    private static final int DEFAULT_TAILLE_PLATEAU = 7;
     private Plateau plateau;
     private Joueur joueurNoir;
     private Joueur joueurBlanc;
     private Scanner sc;
 
     public Partie(){
-        plateau = new Plateau(DEFAULT_TAILLE_PLATEAU);
+        plateau = new Plateau();
         joueurNoir = new Joueur("black", plateau);
         joueurBlanc = new Joueur("white", plateau);
         sc = new Scanner(in);
@@ -35,7 +33,7 @@ public class Partie {
         String commande = entreeToArray[0];
 
         switch (commande){
-            case "boardsize": plateau.setBoardSize(Integer.parseInt(entreeToArray[1]));
+            case "boardsize": plateau.setTaille(Integer.parseInt(entreeToArray[1]));
             break;
 
             case "clear_board": plateau.clearPlateau();
@@ -45,13 +43,19 @@ public class Partie {
             break;
 
             case "play":
-                String couleur = entreeToArray[1];
-                String position = entreeToArray[2];
-                char[] positionToArray = position.toCharArray();
-                if (couleur.equals(joueurNoir.getCouleur())){
-                    joueurNoir.placerPion(positionToArray[0], Character.getNumericValue(positionToArray[1]));
-                }else{
-                    joueurBlanc.placerPion(positionToArray[0], Character.getNumericValue(positionToArray[1]));
+                if (entreeToArray.length != 3){
+                    System.out.println("La commannde est invalide");
+                }else {
+                    String couleur = entreeToArray[1];
+                    String position = entreeToArray[2];
+                    char[] positionToArray = position.toCharArray();
+                    if (couleur.equals(joueurNoir.getCouleur())){
+                        joueurNoir.jouer(positionToArray[0], Character.getNumericValue(positionToArray[1]));
+                    }else if(couleur.equals(joueurBlanc.getCouleur())){
+                        joueurBlanc.jouer(positionToArray[0], Character.getNumericValue(positionToArray[1]));
+                    }else{
+                        System.out.println("Couleur invalide");
+                    }
                 }
             break;
 
