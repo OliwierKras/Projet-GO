@@ -44,14 +44,16 @@ public class PartieTest {
     public void testShowBoard(){
         partie.lancerCommande("play black D5");
         partie.lancerCommande("play white C3");
+        partie.lancerCommande("play black D2");
+        partie.lancerCommande("play white F6");
         StringBuilder attenduBuiler = new StringBuilder(
                 "  A B C D E F G \n" +
                 "7 . . . . . . . 7\n" +
-                "6 . . . . . . . 6\n" +
+                "6 . . . . . O . 6\n" +
                 "5 . . . X . . . 5\n" +
                 "4 . . . . . . . 4\n" +
                 "3 . . O . . . . 3\n" +
-                "2 . . . . . . . 2\n" +
+                "2 . . . X . . . 2\n" +
                 "1 . . . . . . . 1\n" +
                 "  A B C D E F G ");
         char[] attendu = attenduBuiler.toString().toCharArray();

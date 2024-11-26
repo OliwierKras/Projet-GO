@@ -57,10 +57,6 @@ public class Plateau {
             System.out.println("illegal move");
         }
         else{
-            int[] placementJoueur = this.getPlacement(joueur);
-            if (placementJoueur[0] != -1 && placementJoueur[1] != -1) {
-                grille[placementJoueur[0]][placementJoueur[1]] = VIDE;
-            }
             grille[numLigne][numColonne] = lettre;
         }
     }
