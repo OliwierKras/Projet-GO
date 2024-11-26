@@ -3,30 +3,36 @@ package src.partie;
 import src.joueurs.Joueur;
 
 public class Plateau {
-    private int boardSize;
+    public static final int DEFAULT_TAILLE_PLATEAU = 7;
+    public static final char VIDE = '.';
+    private int taille;
     private char [][] grille;
 
-    public Plateau(int boardSize) {
-        if (boardSize <= 0) {
+    public Plateau(int taille) {
+        if (taille <= 0) {
             throw new IllegalArgumentException("La taille du plateau doit être positive");
         }
-        this.boardSize = boardSize;
-        grille = new char[boardSize][boardSize];
-        initialiserPlateau(boardSize);
+        this.taille = taille;
+        grille = new char[taille][taille];
+        initialiserPlateau(taille);
     }
 
-    public void initialiserPlateau(int boardSize) {
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                grille[i][j] = '.';
+    public Plateau(){
+        this(DEFAULT_TAILLE_PLATEAU);
+    }
+
+    public void initialiserPlateau(int taille) {
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
+                grille[i][j] = VIDE;
             }
         }
     }
 
     public int[] getPlacement(Joueur joueur){
         int[] coordonnees = {-1, -1};
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
                 if (grille[i][j] == joueur.getLettre()){
                     coordonnees[0] = i;
                     coordonnees[1] = j;
@@ -39,26 +45,24 @@ public class Plateau {
 
     public void placerPion(Joueur joueur, char colonne, int ligne) {
         char lettre = joueur.getLettre();
-        int numLigne = this.getBoardSize() - ligne;
+        int numLigne = this.getTaille() - ligne;
         int numColonne = colonne % 'A';
 
-        if (numLigne < 0 || numLigne >= this.getBoardSize() || numColonne < 0 || numColonne >= this.getBoardSize()) {
+        //Case en dehors de la dimension du plateau
+        if (numLigne < 0 || numLigne >= this.getTaille() || numColonne < 0 || numColonne >= this.getTaille()) {
             System.out.println("illegal move");
-            return;
         }
-
-        // Vérifie si la case cible est déjà occupée
-        if (grille[numLigne][numColonne] != '.') {
+        //Case occupée
+        else if(grille[numLigne][numColonne] != VIDE){
             System.out.println("illegal move");
-            return;
         }
-
-        int[] placementJoueur = this.getPlacement(joueur);
-        if (placementJoueur[0] != -1 && placementJoueur[1] != -1) {
-            grille[placementJoueur[0]][placementJoueur[1]] = '.';
+        else{
+            int[] placementJoueur = this.getPlacement(joueur);
+            if (placementJoueur[0] != -1 && placementJoueur[1] != -1) {
+                grille[placementJoueur[0]][placementJoueur[1]] = VIDE;
+            }
+            grille[numLigne][numColonne] = lettre;
         }
-
-        grille[numLigne][numColonne] = lettre;
     }
 
 
@@ -66,42 +70,42 @@ public class Plateau {
         return grille;
     }
 
-    public int getBoardSize(){
-        return boardSize;
+    public int getTaille(){
+        return taille;
     }
 
-    public void setBoardSize(int newBoardSize){
-        grille = new char[newBoardSize][newBoardSize];
-        boardSize = newBoardSize;
-        initialiserPlateau(newBoardSize);
+    public void setTaille(int nouvelleTaille){
+        grille = new char[nouvelleTaille][nouvelleTaille];
+        taille = nouvelleTaille;
+        initialiserPlateau(nouvelleTaille);
     }
 
     public void clearPlateau(){
-        initialiserPlateau(boardSize);
+        initialiserPlateau(taille);
     }
 
     @Override
     public String toString(){
-        int numeroLigne = boardSize;
+        int numeroLigne = taille;
         int debut = 66;
         StringBuilder builder = new StringBuilder();
 
         builder.append("  ");
-        for (char l = 'A'; l < (debut + boardSize) - 1; ++l) {
+        for (char l = 'A'; l < (debut + taille) - 1; ++l) {
             builder.append(l).append(" ");
         }
         builder.append("\n");
 
-        for (int i = 0; i < boardSize; i++) {
+        for (int i = 0; i < taille; i++) {
             builder.append(numeroLigne).append(" "); // Numéro de ligne à gauche
-            for (int j = 0; j < boardSize; j++) {
+            for (int j = 0; j < taille; j++) {
                 builder.append(grille[i][j]).append(" "); // Contenu de la ligne
             }
             builder.append(numeroLigne--).append("\n"); // Numéro de ligne à droite
         }
 
         builder.append("  ");
-        for (char l = 'A'; l < (debut + boardSize) - 1; ++l) {
+        for (char l = 'A'; l < (debut + taille) - 1; ++l) {
             builder.append(l).append(" ");
         }
 
