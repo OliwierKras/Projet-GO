@@ -15,24 +15,24 @@ public class PlateauTest {
 
     @Test
     public void testGetPlacement(){
-        Joueur joueurBlanc = new Joueur("white", plateau);
+        Joueur joueurBlanc = new Joueur("white");
 
-        joueurBlanc.jouer('E', 4);
+        plateau.placerPion(joueurBlanc, 'E', 4);
         assertEquals(plateau.getPlacement(joueurBlanc)[0], 3);
         assertEquals(plateau.getPlacement(joueurBlanc)[1], 4);
 
-        joueurBlanc.jouer('F', 2);
+        plateau.placerPion(joueurBlanc, 'F', 2);
         assertEquals(plateau.getPlacement(joueurBlanc)[0], 5);
         assertEquals(plateau.getPlacement(joueurBlanc)[1], 5);
 
-        joueurBlanc.jouer('A', 20);
+        plateau.placerPion(joueurBlanc, 'A', 20);
         assertEquals(plateau.getPlacement(joueurBlanc)[0], 5);
         assertEquals(plateau.getPlacement(joueurBlanc)[1], 5);
     }
 
     @Test
     public void testPlacerPion(){
-        Joueur joueurNoir = new Joueur("black", plateau);
+        Joueur joueurNoir = new Joueur("black");
 
         plateau.placerPion(joueurNoir, 'A', 7);
         assertEquals(plateau.getPlacement(joueurNoir)[0], 0);

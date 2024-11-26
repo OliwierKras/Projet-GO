@@ -15,8 +15,8 @@ public class Partie {
 
     public Partie(){
         plateau = new Plateau();
-        joueurNoir = new Joueur("black", plateau);
-        joueurBlanc = new Joueur("white", plateau);
+        joueurNoir = new Joueur("black");
+        joueurBlanc = new Joueur("white");
         sc = new Scanner(in);
     }
 
@@ -26,6 +26,10 @@ public class Partie {
             this.lancerCommande(entree);
             entree = sc.nextLine();
         }
+    }
+
+    public void jouerTour(Joueur joueur, char colonne, int ligne){
+        plateau.placerPion(joueur, colonne, ligne);
     }
 
     public void lancerCommande(String entree){
@@ -50,9 +54,9 @@ public class Partie {
                     String position = entreeToArray[2];
                     char[] positionToArray = position.toCharArray();
                     if (couleur.equals(joueurNoir.getCouleur())){
-                        joueurNoir.jouer(positionToArray[0], Character.getNumericValue(positionToArray[1]));
+                        jouerTour(joueurNoir, positionToArray[0], Character.getNumericValue(positionToArray[1]));
                     }else if(couleur.equals(joueurBlanc.getCouleur())){
-                        joueurBlanc.jouer(positionToArray[0], Character.getNumericValue(positionToArray[1]));
+                        jouerTour(joueurBlanc, positionToArray[0], Character.getNumericValue(positionToArray[1]));
                     }else{
                         System.out.println("Couleur invalide");
                     }
