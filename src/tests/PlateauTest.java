@@ -2,24 +2,58 @@ package src.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import src.joueurs.Joueur;
 import org.junit.jupiter.api.Test;
+import src.joueurs.Joueur;
 import src.partie.Plateau;
 
 public class PlateauTest {
+    Plateau plateau = new Plateau(7);
     @Test
     public void testTaillePlateau(){
-        Plateau plateau = new Plateau(7);
-        assertEquals(7, plateau.getBoardSize());
+        assertEquals(7, plateau.getTaille());
     }
 
     @Test
-    public void afficherPlateau(){
-        Plateau plateau = new Plateau(7);
-        Joueur joueurUn = new Joueur("white", plateau);
-        joueurUn.placerPion('D', 5);
-        joueurUn.placerPion('E', 7);
-        joueurUn.placerPion('B', 2);
-        plateau.printPlateau();
+    public void testGetPlacement(){
+        Joueur joueurBlanc = new Joueur("white", plateau);
+
+        joueurBlanc.jouer('E', 4);
+        assertEquals(plateau.getPlacement(joueurBlanc)[0], 3);
+        assertEquals(plateau.getPlacement(joueurBlanc)[1], 4);
+
+        joueurBlanc.jouer('F', 2);
+        assertEquals(plateau.getPlacement(joueurBlanc)[0], 5);
+        assertEquals(plateau.getPlacement(joueurBlanc)[1], 5);
+
+        joueurBlanc.jouer('A', 20);
+        assertEquals(plateau.getPlacement(joueurBlanc)[0], 5);
+        assertEquals(plateau.getPlacement(joueurBlanc)[1], 5);
     }
+
+    @Test
+    public void testPlacerPion(){
+        Joueur joueurNoir = new Joueur("black", plateau);
+
+        plateau.placerPion(joueurNoir, 'A', 7);
+        assertEquals(plateau.getPlacement(joueurNoir)[0], 0);
+        assertEquals(plateau.getPlacement(joueurNoir)[1], 0);
+
+        plateau.placerPion(joueurNoir, 'G', 3);
+        assertEquals(plateau.getPlacement(joueurNoir)[0], 4);
+        assertEquals(plateau.getPlacement(joueurNoir)[1], 6);
+
+        plateau.placerPion(joueurNoir, 'B', 8);
+        assertEquals(plateau.getPlacement(joueurNoir)[0], 4);
+        assertEquals(plateau.getPlacement(joueurNoir)[1], 6);
+    }
+
+    @Test
+    public void testClearPlateau(){
+        for(int i = 0; i < plateau.getTaille(); ++i){
+            for(int j = 0; j < plateau.getTaille(); ++j){
+                assertEquals(Plateau.VIDE, plateau.getGrille()[i][j]);
+            }
+        }
+    }
+
 }
