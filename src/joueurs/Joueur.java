@@ -11,7 +11,7 @@ public class Joueur {
         this.plateau = plateau;
     }
 
-    public void placerPion(char colonne, int ligne){
+    public void jouer(char colonne, int ligne){
         plateau.placerPion(this, colonne, ligne);
     }
 
