@@ -32,6 +32,9 @@ public class Partie {
     public void jouerTour(Joueur joueur, char colonne, int ligne){
         plateau.placerPion(joueur, colonne, ligne);
     }
+    public void randJouerTour(Joueur joueur){
+        plateau.genMove(joueur);
+    }
 
     public void lancerCommande(String entree){
         String[] entreeToArray = entree.split(" ");
@@ -47,9 +50,25 @@ public class Partie {
             case "show_board": plateau.printPlateau();
             break;
 
+            case "gen_move":
+                if (entreeToArray.length != 2){
+                    System.out.print("");
+                }else{
+                    String couleurJoueur = entreeToArray[1];
+                    if (couleurJoueur.equals(joueurNoir.getCouleur())){
+                        randJouerTour(joueurNoir);
+                    }else if(couleurJoueur.equals(joueurBlanc.getCouleur())){
+                        randJouerTour(joueurBlanc);
+                    }else{
+                        System.out.println("Couleur invalide");
+                    }
+                    break;
+                }
+
+
             case "play":
                 if (entreeToArray.length != 3){
-                    System.out.println("La commannde est invalide");
+                    System.out.println("La commande est invalide");
                 }else {
                     String couleur = entreeToArray[1];
                     String position = entreeToArray[2];
