@@ -2,6 +2,8 @@ package src.plateaux;
 
 import src.joueurs.Joueur;
 
+import java.util.Random;
+
 public class Plateau {
     public static final int DEFAULT_TAILLE_PLATEAU = 7;
     public static final char VIDE = '.';
@@ -59,6 +61,12 @@ public class Plateau {
         else{
             grille[numLigne][numColonne] = lettre;
         }
+    }
+    public void genMove(Joueur joueur){
+        Random rand = new Random();
+        int randLine = rand.nextInt(this.getTaille()) + 1;
+        char randChar = (char) (rand.nextInt(this.getTaille()) + 'A');
+        placerPion(joueur, randChar, randLine);
     }
 
 
