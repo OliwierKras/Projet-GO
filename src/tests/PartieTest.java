@@ -1,9 +1,12 @@
 package src.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import src.jeu.Partie;
+import src.joueurs.Joueur;
+import src.plateaux.Plateau;
 
 public class PartieTest {
     private Partie partie = new Partie();
@@ -63,4 +66,38 @@ public class PartieTest {
             assertEquals(attendu[i], plateau[i]);
         }
     }
+
+
+    @Test
+    public void testGenMove() {
+        Partie partie = new Partie();
+        partie.lancerCommande("boardsize 7");
+        Plateau plateau = partie.getPlateau();
+        Joueur joueurNoir = partie.getJoueurNoir();
+        Joueur getJoueurBlanc = partie.getJoueurBlanc();
+        boolean pionPlace = false;
+
+        partie.lancerCommande("gen_move black");
+        for (int i = 0; i < plateau.getTaille(); i++) {
+            for (int j = 0; j < plateau.getTaille(); j++) {
+                if (plateau.getGrille()[i][j] == joueurNoir.getLettre()) {
+                    pionPlace = true;
+                }
+            }
+        }
+        assertTrue(pionPlace);
+
+        partie.lancerCommande("gen_move white");
+        pionPlace = false;
+        for (int i = 0; i < plateau.getTaille(); i++) {
+            for (int j = 0; j < plateau.getTaille(); j++) {
+                if (plateau.getGrille()[i][j] == getJoueurBlanc.getLettre()) {
+                    pionPlace = true;
+                }
+            }
+        }
+        assertTrue(pionPlace);
+    }
+
+
 }
