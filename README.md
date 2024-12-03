@@ -6,7 +6,7 @@ projet académique collaboratif visant à développer un programme permettant de
 
 Utilisation:
 
--boardsize x               // permet de donner une taille x au plateau de jeu
+-boardsize x               // permet de donner une taille x au plateau de jeu 
 
 -show_board                // permet d'afficher le plateau avec les pion dessus
 
