@@ -5,12 +5,24 @@ Projet académique collaboratif visant à développer un programme permettant de
 ## Utilisation
 
 ```plaintext
-- boardsize x              // permet de donner une taille x au plateau de jeu
+- boardsize x              // Donne une taille x au plateau de jeu
 
-- show_board               // permet d'afficher le plateau avec les pions dessus
+- showboard               // Affiche le plateau
 
-- gen_move couleur         // permet de placer un pion d'une couleur aléatoirement
+- genmove couleur         // Génére coup de la couleur désirée avec l'algo minimaxx
 
-- clear_board              // permet de vider le plateau des pions
+- clear_board              // Vide le plateau des pions
 
-- play couleur coordonnée  // permet de placer un pion d'une couleur à des coordonnées données
+- play couleur coordonnée  // Place un pion d'une couleur à des coordonnées données
+
+- name // Affiche le nom du programme (moteur)
+
+- protocol_version // Affiche la version du protocole GTP
+
+- version // Affiche la version du programme
+
+- list_commands // Affiche la liste des commandes GTP
+
+- set_player couleur type ?profondeur //Défini un joueur d'un certain type (human, randomBot, minimax) et d'une certaine profondeur si besoin
+
+- quit // Ferme le programme
