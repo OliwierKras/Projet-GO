@@ -1,6 +1,6 @@
 # Projet-GO
 
-Projet académique collaboratif visant à développer un programme permettant de jouer au Go, avec un moteur de jeu en Java.
+Projet académique collaboratif visant à développer un moteur Gomoku, en utilisant le protocole GTP.
 
 ## Utilisation
 
