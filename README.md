@@ -1,4 +1,4 @@
-# Projet-GO
+# Moteur Gomoku
 
 Projet académique collaboratif visant à développer un moteur Gomoku, en utilisant le protocole GTP.
 
