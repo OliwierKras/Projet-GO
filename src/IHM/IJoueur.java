@@ -1,6 +1,6 @@
 package src.IHM;
 
-import IHM.IHM;
+import src.IHM.IHM;
 
 public interface IJoueur {
     public void genMove(IHM ihm);

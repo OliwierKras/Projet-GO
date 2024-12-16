@@ -1,8 +1,5 @@
 package src.plateau;
 
-import joueurs.Joueur;
-import IHM.IJoueur;
-
 import java.util.ArrayList;
 import java.util.List;
 

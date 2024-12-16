@@ -1,9 +1,7 @@
 package src.joueurs;
 
-import commandes.GenMove;
-import commandes.Play;
-import plateau.Plateau;
-import IHM.IHM;
+import src.commandes.*;
+import src.IHM.IHM;
 
 public class BotMinimax extends Joueur {
     private int profondeur;

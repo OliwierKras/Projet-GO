@@ -1,8 +1,7 @@
 package src.joueurs;
 
-import commandes.GenMove;
-import IHM.IHM;
-import commandes.Play;
+import src.commandes.*;
+import src.IHM.IHM;
 
 import java.util.List;
 import java.util.Random;

@@ -1,7 +1,7 @@
 package src.IHM;
 
-import commandes.ShowBoard;
-import plateau.*;
+import src.commandes.*;
+import src.plateau.Plateau;
 
 public class IHM {
     private Plateau plateau;

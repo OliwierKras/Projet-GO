@@ -1,6 +1,6 @@
 package src.IHM;
 
-import commandes.*;
+import src.commandes.*;
 
 public class CommandeFactory {
     public static String[] commandes =

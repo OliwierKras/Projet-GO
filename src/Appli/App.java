@@ -1,6 +1,6 @@
 package src.Appli;
 
-import IHM.IHM;
+import src.IHM.IHM;
 public class App {
     public static void main(String[] args) {
         IHM ihm = new IHM();

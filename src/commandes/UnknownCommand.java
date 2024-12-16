@@ -1,6 +1,6 @@
 package src.commandes;
 
-import IHM.ICommandeGTP;
+import src.IHM.ICommandeGTP;
 
 public class UnknownCommand implements ICommandeGTP {
     private String commande;

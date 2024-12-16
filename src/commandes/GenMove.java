@@ -1,7 +1,7 @@
 package src.commandes;
 
-import IHM.*;
-import plateau.Plateau;
+import src.IHM.*;
+import src.plateau.Plateau;
 
 import java.util.Random;
 

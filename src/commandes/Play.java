@@ -1,6 +1,6 @@
 package src.commandes;
 
-import IHM.*;
+import src.IHM.*;
 
 public class Play implements ICommandeGTP {
     private IHM ihm;

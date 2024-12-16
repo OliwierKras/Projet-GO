@@ -1,6 +1,6 @@
 package src.joueurs;
 
-import IHM.IJoueur;
+import src.IHM.IJoueur;
 
 public abstract class Joueur implements IJoueur {
     private String couleur;

@@ -1,6 +1,6 @@
 package src.commandes;
 
-import IHM.*;
+import src.IHM.*;
 
 public class BoardSize implements ICommandeGTP {
     private IHM ihm;

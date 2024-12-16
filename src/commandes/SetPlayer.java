@@ -1,10 +1,8 @@
 package src.commandes;
 
-import IHM.ICommandeGTP;
-import IHM.*;
-import joueurs.BotMinimax;
-import joueurs.BotNaif;
-import joueurs.Humain;
+import src.IHM.ICommandeGTP;
+import src.IHM.*;
+import src.joueurs.*;
 
 public class SetPlayer implements ICommandeGTP {
     private IHM ihm;

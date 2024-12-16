@@ -1,7 +1,7 @@
 package src.joueurs;
 
-import commandes.Play;
-import IHM.*;
+import src.commandes.*;
+import src.IHM.IHM;
 
 import java.util.Scanner;
 
