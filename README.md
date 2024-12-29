@@ -7,7 +7,7 @@ Membres:
 - KRAS Oliwier (208)
 - BARBIER Lucas (207)
 
-Tout fonctionne correctement, le bot minimax partiellement.
+Tout fonctionne correctement hormis le bot minimax qui fonctionne partiellement.
 
 Tout nos tests unitaires passsent.
 
