@@ -5,7 +5,7 @@ Membres:
 - SOUMAH Ali (208)
 - TABTI Abdelhilah (207)
 - KRAS Oliwier (208)
-- BARBIER LUCAS (207)
+- BARBIER Lucas (207)
 
 Tout fonctionne correctement, le bot minimax partiellement.
 
