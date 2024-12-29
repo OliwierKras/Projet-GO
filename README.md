@@ -1,4 +1,4 @@
-# Projet R304 Moteur Gomoku
+# Projet R3.04 Moteur Gomoku
 
 Groupe: 207/208
 Membres:
