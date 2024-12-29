@@ -1,6 +1,19 @@
-# Moteur Gomoku
+# Projet R304 Moteur Gomoku
 
-Projet académique collaboratif visant à développer un moteur Gomoku, en utilisant le protocole GTP.
+Groupe: 207/208
+Membres:
+- SOUMAH Ali (208)
+- TABTI Abdelhilah (207)
+- KRAS Oliwier (208)
+- BARBIER LUCAS (207)
+
+Tout fonctionne correctement, le bot minimax partiellement.
+
+Tout nos tests unitaires passsent.
+
+L'impléméntation de l'algorithme minimax a été la plus grande difficulté.
+
+Le moteur a pu etre connecté à gogui.
 
 ## Utilisation
 
@@ -9,7 +22,7 @@ Projet académique collaboratif visant à développer un moteur Gomoku, en utili
 
 - showboard                // Affiche le plateau
 
-- genmove couleur          // Génére coup de la couleur désirée avec l'algo minimaxx
+- genmove couleur          // Génére coup de la couleur désirée avec l'algo minimax
 
 - clear_board              // Vide le plateau des pions
 
