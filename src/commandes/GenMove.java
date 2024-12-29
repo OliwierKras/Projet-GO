@@ -50,16 +50,15 @@ public class GenMove implements ICommandeGTP {
         System.out.println(bestMove); // Affiche le coup choisi
     }
 
-    // Fonction Minimax récursive
     private int minimax(Plateau plateau, int depth, boolean isMaximizingPlayer, int alpha, int beta, char[][] sauvegardePlateau) {
-        if (depth == 0 || plateau.verifierVictoire('O') || plateau.verifierVictoire('X')) {
+        if (depth == 0 || plateau.verifierVictoire('O') || plateau.verifierVictoire('X') || plateau.estPlein()) {
             return evaluate(plateau); // Retourne la valeur de la position
         }
 
         int bestScore = isMaximizingPlayer ? Integer.MIN_VALUE : Integer.MAX_VALUE;
 
         for (String coup : plateau.getCoupsPossibles()) {
-            plateau.appliquerCoup(coup, isMaximizingPlayer ? "white" : "black"); // Applique le coup
+            plateau.appliquerCoup(coup, isMaximizingPlayer ? "O" : "X"); // Applique le coup
             int score = minimax(plateau, depth - 1, !isMaximizingPlayer, alpha, beta, sauvegardePlateau); // Appel récursif
             plateau.setGrille(sauvegardePlateau); // Restaure l'état du plateau après l'appel récursif
 
@@ -80,13 +79,14 @@ public class GenMove implements ICommandeGTP {
         return bestScore;
     }
 
-    // Fonction d'évaluation simple (vous pouvez l'améliorer)
     private int evaluate(Plateau plateau) {
         if (plateau.verifierVictoire('O')) {
             return 10; // Victoire du bot
         } else if (plateau.verifierVictoire('X')) {
             return -10; // Victoire de l'adversaire
+        } else if (plateau.estPlein()) {
+            return 0; // Match nul, mais bot peut quand même jouer
         }
-        return 0; // Aucun gagnant
+        return 0; // Si aucune victoire, retourner une valeur neutre (match nul)
     }
 }

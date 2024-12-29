@@ -13,6 +13,7 @@ public class BotMinimax extends Joueur {
 
     @Override
     public void genMove(IHM ihm) {
+        System.out.println("Coup du bot: ");
         GenMove genMove = new GenMove(ihm, this.getCouleur());
         genMove.setProfondeur(profondeur);
         genMove.executer();

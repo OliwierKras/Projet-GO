@@ -6,7 +6,7 @@ import java.util.List;
 public class Plateau {
     private char[][] grille;
     public static final char VIDE = '.';
-    private int taille = 7;
+    private int taille = 6;
 
     public Plateau() {
         this.grille = new char[taille][taille];
@@ -19,6 +19,15 @@ public class Plateau {
                 grille[i][j] = VIDE;
             }
         }
+    }
+
+    public boolean estPlein(){
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
+                if (grille[i][j] == VIDE) return false;
+            }
+        }
+        return true;
     }
 
     public void clearPlateau(){
@@ -59,6 +68,10 @@ public class Plateau {
     public void appliquerCoup(String coup, String couleur) {
         int colonne = coup.charAt(0) - 'A';
         int ligne = taille - Character.getNumericValue(coup.charAt(1));
+        if(coup.length() > 2){
+            String ligneString = coup.charAt(1)+""+coup.charAt(2);
+            ligne = taille - Integer.parseInt(ligneString);
+        }
         if (grille[ligne][colonne] == VIDE) {
             grille[ligne][colonne] = couleur.equals("white") || couleur.equals("W") || couleur.equals("w") ? 'O' : 'X';
         } else {

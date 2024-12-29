@@ -16,8 +16,10 @@ public class BotNaif extends Joueur{
 
     @Override
     public void genMove(IHM ihm) {
+        System.out.println("Coup du bot: ");
         List<String> coupsPossibles = ihm.getPlateau().getCoupsPossibles();
         String coup = coupsPossibles.get(random.nextInt(coupsPossibles.size()));
         new Play(ihm, this.getCouleur(), coup).executer();
+        System.out.println(coup);
     }
 }

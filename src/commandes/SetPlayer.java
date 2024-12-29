@@ -33,7 +33,7 @@ public class SetPlayer implements ICommandeGTP {
         } else if (typeJoueur.equals("randomBot")) {
             joueur = new BotNaif(couleur);
         }else if(typeJoueur.equals("minimax")){
-            joueur = new BotMinimax(couleur, (profondeur));
+            joueur = new BotMinimax(couleur, profondeur);
         }
 
         if (couleur.equals("black")) {

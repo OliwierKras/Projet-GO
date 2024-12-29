@@ -15,7 +15,9 @@ public class Humain extends Joueur {
 
     @Override
     public void genMove(IHM ihm) {
+        System.out.println("Entrer un coup: ");
         String coup = scanner.nextLine();
         new Play(ihm, this.getCouleur(), coup).executer();
+        System.out.println();
     }
 }

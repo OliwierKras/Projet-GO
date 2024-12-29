@@ -11,10 +11,6 @@ public class IHMConsole {
         this.scanner = new Scanner(System.in);
     }
 
-    /**
-     * Lit une commande depuis la console.
-     * @return La commande entrée par l'utilisateur.
-     */
     public String lireCommande() {
         return scanner.nextLine();
     }

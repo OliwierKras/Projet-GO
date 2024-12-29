@@ -14,14 +14,22 @@ public class Play implements ICommandeGTP {
     }
 
     public void executer() {
-        int ligne = ihm.getPlateau().getTaille() - Character.getNumericValue(position.charAt(1));
-        int colonne = position.charAt(0) - 'A';
+        if (position == null) {
+            return;
+        }
 
-        if(ihm.getPlateau().coupPossible(ligne, colonne)){
+        int ligne = ihm.getPlateau().getTaille() - Character.getNumericValue(position.charAt(1));
+        if(position.length() > 2){
+            String ligneString = position.charAt(1)+""+position.charAt(2);
+            ligne = ihm.getPlateau().getTaille() - Integer.parseInt(ligneString);
+        }
+        int colonne = position.charAt(0) - 'A';
+        if (ihm.getPlateau().coupPossible(ligne, colonne)) {
             ihm.getPlateau().appliquerCoup(position, couleur);
-            System.out.println("=");
-        }else{
+            System.out.print("=");
+        } else {
             System.out.println("? illegal move");
         }
     }
+
 }
