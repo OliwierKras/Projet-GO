@@ -11,7 +11,7 @@ Tout fonctionne correctement hormis le bot minimax qui fonctionne partiellement.
 
 Tout nos tests unitaires passsent.
 
-L'impléméntation de l'algorithme minimax a été la plus grande difficulté.
+L'implémentation de l'algorithme minimax a été la plus grande difficulté.
 
 Le moteur a pu etre connecté à gogui.
 
