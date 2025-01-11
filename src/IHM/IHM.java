@@ -18,7 +18,6 @@ public class IHM {
         this.joueurBlanc = null;
     }
 
-    // Méthode pour choisir entre le mode debug et le mode partie
     public void choisirMode() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choisissez le mode de jeu  (Tapez 1 ou 2) : ");
@@ -53,7 +52,7 @@ public class IHM {
         System.out.println("Veuillez choisir la taille du plateau:");
         int taillePlateau = 0;
         taillePlateau = Integer.parseInt(ihm.lireCommande());
-        plateau.setTaille(taillePlateau); // Assurez-vous que votre classe Plateau peut gérer la taille dynamique
+        plateau.setTaille(taillePlateau); 
 
         System.out.println("Veuillez définir le premier joueur (set_player [couleur] [human/randomBot/minimax] [?profondeur])");
         String setPlayer1 = ihm.lireCommande();
