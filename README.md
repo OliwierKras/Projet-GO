@@ -7,6 +7,20 @@ Membres:
 - KRAS Oliwier (208)
 - BARBIER Lucas (207)
 
+## NOTE 14
+
+## CORRECTION
+Il manque des tests, notamment sur minimax.
+
+Diagramme d'architecture OK en supposant que les liens de dépendances sur un paquetage complet concerne la plupart des classes du paquetage
+
+
+L'ergonomie de l'application est bonne avec le choix entre le mode partie et le mode debug et un mode partie agréable.
+
+Hélas minimax 8 ne marche pas, je le bats sans aucun souci ce qui ne devrait pas être possible sur un 3x3 !
+
+
+
 Tout fonctionne correctement hormis le bot minimax qui fonctionne partiellement.
 
 Tout nos tests unitaires passsent.
